@@ -1,0 +1,1 @@
+# Web socket credentials provider
