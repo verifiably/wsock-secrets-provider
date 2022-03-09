@@ -7,8 +7,8 @@ import os
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-VERSION = '0.0.4'
-DESCRIPTION = 'Package to set up a credentials provider with wSock.'
+VERSION = '0.0.5'
+DESCRIPTION = 'Secrets provider that communicates with trusted execution environments over web sockets'
 LONG_DESCRIPTION = long_description
 
 # Setting up
@@ -16,7 +16,7 @@ setup(
     name="wsock_secrets_provider",
     version=VERSION,
     author="Verifiably",
-    author_email="atul@verifiably.com",
+    author_email="contact@verifiably.com",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=long_description,
