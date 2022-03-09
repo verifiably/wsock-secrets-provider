@@ -36,7 +36,9 @@ class SecretsProvider():
 
     def send_credentials(self, v_function_connection_id, att_doc_b64):
         client = boto3.client('apigatewaymanagementapi',
-                              endpoint_url="https://wsock.us-east-2.verifiably.com")
+                              endpoint_url="https://wsock.us-east-2.verifiably.com",
+                              region_name="us-east-2")
+
         attestation_doc = base64.b64decode(att_doc_b64)
         att_doc_status = False
         try:

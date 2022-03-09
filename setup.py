@@ -7,7 +7,7 @@ import os
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-VERSION = '0.0.1'
+VERSION = '0.0.3'
 DESCRIPTION = 'Package to set up a credentials provider with wSock.'
 LONG_DESCRIPTION = long_description
 
