@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 VERSION = '0.0.5'
-DESCRIPTION = 'Secrets provider that communicates with trusted execution environments over web sockets'
+DESCRIPTION = 'Secrets provider that communicates with trusted execution environments over web sockets.'
 LONG_DESCRIPTION = long_description
 
 # Setting up
