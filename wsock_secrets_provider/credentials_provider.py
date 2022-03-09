@@ -71,4 +71,4 @@ class SecretsProvider():
             print("Your connectionId: %s" %message_json['connectionId'])
         elif 'vFunctionConnectionId' in message_json:
             print("Received credentials request: %s" %message)
-            send_credentials(message_json['vFunctionConnectionId'], message_json['att_doc'])
+            self.send_credentials(message_json['vFunctionConnectionId'], message_json['att_doc'])
