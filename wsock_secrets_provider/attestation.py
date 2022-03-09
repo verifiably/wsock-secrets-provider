@@ -58,10 +58,6 @@ def get_credentials(attestation_doc_b64):
     return encrypted_bundle;
 
 
-def verify_zip(uploadedZip):
-    return True
-
-
 def verify_attestation_doc(attestation_doc, expected_pcrs):
     # Decode CBOR attestation document
     data = cbor2.loads(attestation_doc)
