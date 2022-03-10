@@ -35,7 +35,7 @@ class SecretsProvider():
         return encrypted_bundle;
 
 
-    def send_credentials(self, v_function_connection_id, att_doc_b64, aws_credentials):
+    def send_credentials(self, v_function_connection_id, attestation_doc, aws_credentials):
         client = boto3.client(
             'apigatewaymanagementapi',
             endpoint_url="https://wsock.us-east-2.verifiably.com",
@@ -45,7 +45,6 @@ class SecretsProvider():
             aws_session_token = aws_credentials["SessionToken"])
 
 
-        attestation_doc = base64.b64decode(att_doc_b64)
         att_doc_status = False
         try:
             att_doc_status = attestation.verify_attestation_doc(
