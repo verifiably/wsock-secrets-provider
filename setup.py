@@ -7,13 +7,13 @@ import os
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-VERSION = '0.0.5'
+VERSION = '0.0.6'
 DESCRIPTION = 'Secrets provider that communicates with trusted execution environments over web sockets.'
 LONG_DESCRIPTION = long_description
 
 # Setting up
 setup(
-    name="wsock_secrets_provider",
+    name="verifiably_wsock_secrets_provider",
     version=VERSION,
     author="Verifiably",
     author_email="contact@verifiably.com",
@@ -29,10 +29,10 @@ setup(
         'pyOpenSSL==19.1.0',
         'boto3',
         'websocket-client',
-        'rel'
+        'rel',
+        'verifiably_checker'
     ],
     python_requires='>=3.8',
-    include_package_data = True,
     keywords=['python', 'web-socket', 'credentials'],
     url='https://github.com/verifiably/wsock-secrets-provider',
     classifiers=[

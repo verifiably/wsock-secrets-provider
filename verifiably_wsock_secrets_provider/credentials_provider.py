@@ -3,7 +3,8 @@ import json
 import rel
 import boto3
 import base64
-from wsock_secrets_provider import attestation
+from verifiably_checker import attestation
+import traceback
 
 class SecretsProvider():
     def __init__(self, credentials, expected_pcrs):
@@ -49,9 +50,11 @@ class SecretsProvider():
         try:
             att_doc_status = attestation.verify_attestation_doc(
                 attestation_doc, self.expected_pcrs)
-        except Exception as e:
+        except Exception:
             print("Invalid attesttion document")
-            print(e)
+            # print(e)
+            print(traceback.format_exc())
+            return
 
         if att_doc_status == False:
             print("Invalid attestation document")

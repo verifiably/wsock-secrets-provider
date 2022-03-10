@@ -6,14 +6,14 @@ This library enables an easy setup for a secret provider trough wsock. This secr
 To install this library run:
 
 ```
-pip install wsock_secrets_provider
+pip install verifiably_wsock_secrets_provider
 ```
 
 ## Setup
 To create the server, just provide your secrets and start the communication trough wsock.
 
 ```python
-from wsock_secrets_provider import credentials_provider
+from verifiably_wsock_secrets_provider import credentials_provider
 
 credentials = {
     "account1":{
