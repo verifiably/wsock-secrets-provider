@@ -34,10 +34,15 @@ class SecretsProvider():
         return encrypted_bundle;
 
 
-    def send_credentials(self, v_function_connection_id, att_doc_b64):
-        client = boto3.client('apigatewaymanagementapi',
-                              endpoint_url="https://wsock.us-east-2.verifiably.com",
-                              region_name="us-east-2")
+    def send_credentials(self, v_function_connection_id, att_doc_b64, aws_credentials):
+        client = boto3.client(
+            'apigatewaymanagementapi',
+            endpoint_url="https://wsock.us-east-2.verifiably.com",
+            region_name = aws_credentials["Region"],
+            aws_access_key_id = aws_credentials["AccessKeyId"],
+            aws_secret_access_key = aws_credentials["SecretAccessKey"],
+            aws_session_token = aws_credentials["SessionToken"])
+
 
         attestation_doc = base64.b64decode(att_doc_b64)
         att_doc_status = False
@@ -71,4 +76,9 @@ class SecretsProvider():
             print("Your connectionId: %s" %message_json['connectionId'])
         elif 'vFunctionConnectionId' in message_json:
             print("Received credentials request: %s" %message)
-            self.send_credentials(message_json['vFunctionConnectionId'], message_json['att_doc'])
+            try:
+                self.send_credentials(message_json['vFunctionConnectionId'],
+                                      message_json['att_doc'],
+                                      message_json['aws_credentials'])
+            except Exception as e:
+                print(e)
