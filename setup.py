@@ -30,7 +30,7 @@ setup(
         'boto3',
         'websocket-client',
         'rel',
-        'verifiably_checker'
+        'verifiably_checker==0.0.3'
     ],
     python_requires='>=3.8',
     keywords=['python', 'web-socket', 'credentials'],
